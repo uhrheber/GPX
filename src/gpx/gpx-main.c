@@ -218,7 +218,7 @@ int gpx_sio_open(Gpx *gpx, const char *filename, speed_t baud_rate,
 	 *sio_port = -1;
 
     // open and configure the serial port
-    if((port = open(filename, O_RDWR | O_NOCTTY | O_NONBLOCK)) < 0) {
+    if((port = open(filename, O_RDWR | O_NOCTTY | O_SYNC)) < 0) {
         perror("Error opening port");
 	return 0;
     }
